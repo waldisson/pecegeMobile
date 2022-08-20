@@ -12,7 +12,9 @@
     "noEmit": true,
     "strict": true,
     "target": "esnext",
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,
+    "types": ["jest", "styled-components-react-native"],
+    "noImplicitAny": false                                 /* Skip type checking all .d.ts files. */
   },
   "exclude": [
     "node_modules",
