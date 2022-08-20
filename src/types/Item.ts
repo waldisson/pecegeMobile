@@ -8,3 +8,9 @@ export type Item = {
   annotation: string;
   status: 'Pendente' | 'Em andamento' | 'Concluída';
 }
+
+export type SectorItem = {
+  id: number;
+  name: string;
+  color: string;
+}

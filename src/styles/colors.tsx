@@ -21,5 +21,4 @@ export default {
   greenFc: '#6AAC41',
   danger: '#E02D3C',
 
-
 }
