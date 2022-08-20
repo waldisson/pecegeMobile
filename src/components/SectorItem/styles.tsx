@@ -6,7 +6,7 @@ export const Container = styled.View<CardItemProps>`
   flex-direction: row;
   justify-content: space-between;
   height: 44px;
-  border-left-color: ${props => props.color === '' };
+  border-left-color: ${colors.orange};
   border-left-width:7px;
   border-radius:8px;
   padding:12px 16px 14px 16px;
