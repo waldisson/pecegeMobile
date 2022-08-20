@@ -39,14 +39,14 @@ const CustomDrawer: React.FC <CustomDrawerProps> = props => {
           icon={<CheckButton />}
           title="Tarefas"
           subtitle="Visualize e adicione tarefas"
-          onPress={()=> {}}
+          onPress={()=> navigation.navigate('Home')}
         />
           <Button 
           variation='drawer' 
           icon={<CheckButton />} 
           title="Setores"
           subtitle="Visualize e cadastre setores"
-          onPress={()=> {}}
+          onPress={()=> navigation.navigate('Sector')}
         />
       </DrawerContentScrollView>
     </CustomContainer>

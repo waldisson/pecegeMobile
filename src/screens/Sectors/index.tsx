@@ -1,37 +1,43 @@
 import React, { useState } from "react";
+import colors from "../../styles";
+
 // array mocado
-import {SectorItem} from '../../types/Item';
+import {ItemSector} from '../../types/Item';
+
 // style
 import {
   Container,
   ButtonFloat,
   ListItems,
+  SectorHeader,
+  Title,
+  SubTitle,
 } from './styles';
 
 // components
 import Button from "../../components/Button";
-import Search from "../../components/Search";
 import ModalAdd from "../../components/Modal";
-import CardItem from "../../components/CardItem";
+import SectorItem from "../../components/SectorItem";
+
 
 const Sectors = () => {
 
   const [showModal, setShowModal] = useState(false);
-  const [list, setList] = useState<SectorItem[]>([
+  const [list, setList] = useState<ItemSector[]>([
     { 
       id:1,
-      name: 'Tarefa Incrível',
-      color: '',
+      name: 'Tecnologia da informação (T.I)',
+      color: `${colors.blueGe}`,
     },
     { 
       id:2,
-      name: 'Tarefa Incrível nº 2',
-      color: '',
+      name: 'Relacionamento',
+      color: `${colors.blueGe}`,
     },
     { 
       id:3,
-      name: 'Tarefa Incrível nº 3',
-      color: '',
+      name: 'Suporte',
+      color: `${colors.blueGe}`,
     },
   ]);
 
@@ -41,21 +47,24 @@ const Sectors = () => {
 
   return (
     <Container>
-      <Search />
+      
+      <SectorHeader>
+        <Title>Setores</Title>
+        <SubTitle>Gerencie, visualize, exclua ou adicione setores para suas tarefas</SubTitle>
+      </SectorHeader>
       
       <ListItems
         data={list}
         keyExtractor={(item) => item.id}
-        renderItem={({item}) => <CardItem item={item} />}
+        renderItem={({item}) => <SectorItem item={item} />}
       />
-      
-      
       <ButtonFloat>
         <Button 
           variation="round"
           onPress={toggleShowModal}
         />
       </ButtonFloat>
+
       {
         showModal && 
         <ModalAdd 
@@ -65,6 +74,7 @@ const Sectors = () => {
           closeModal={toggleShowModal} 
         />
       }
+
     </Container>
   )
 }

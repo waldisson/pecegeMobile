@@ -15,10 +15,14 @@ export default {
   gray300: '#808080',
   gray400: '#4E4E4F',
 
-  orange: '#F37F3A',
-
-  blueLight: '#4296E2',
   greenFc: '#6AAC41',
+  greenBusiness: '#00A98E',
+
+  blueGe: '#0099D7',
+  blueLight: '#4296E2',
+
+  orange: '#F37F3A',
+  purple:  '#93268F',
   danger: '#E02D3C',
 
 }

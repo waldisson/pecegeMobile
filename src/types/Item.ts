@@ -9,7 +9,7 @@ export type Item = {
   status: 'Pendente' | 'Em andamento' | 'Concluída';
 }
 
-export type SectorItem = {
+export type ItemSector = {
   id: number;
   name: string;
   color: string;
