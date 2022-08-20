@@ -1,5 +1,5 @@
 import React from "react";
-
+import colors from '../../styles';
 // style
 import {
   Container,
@@ -11,13 +11,14 @@ import {
   CardPriority,
   CardSector,
   CardStatus,
+  CardSectorContent,
+  CardPriorityContent,
+  CardStatusContent,
 } from './styles';
 
 // icons
-
-
-// component
-import Button from "../Button";
+import LocationFilled from "../../assets/icons/locationFilled";
+import Info from "../../assets/icons/info";
 
 export interface ItemProps {
   id:number,
@@ -36,6 +37,12 @@ interface CardItemProps {
 const CardItem: React.FC <CardItemProps> = props => {
   const {item} = props;
 
+  const sector: Record<string, Element> = {
+    'Em andamento': <LocationFilled color={colors.orange}/>,
+    'Concluída': <LocationFilled color={colors.orange}/>,
+    'Pendente': <LocationFilled color={colors.orange}/>
+  };
+
   return (
     <Container>
       <CardTitleAndDate>
@@ -44,13 +51,22 @@ const CardItem: React.FC <CardItemProps> = props => {
       </CardTitleAndDate>
       <CardDescription>{item.description}</CardDescription>
       <CardContentInfo>
-        <CardPriority>{item.priority}</CardPriority>
-        <CardSector>{item.sector}</CardSector>
-        <CardStatus>{item.status}</CardStatus>
+        <CardSectorContent>
+          <LocationFilled color={colors.orange}/>
+          <CardSector>{item.sector}</CardSector>
+        </CardSectorContent>
+        <CardPriorityContent>
+          <Info />
+          <CardPriority>{item.priority}</CardPriority>
+        </CardPriorityContent>
+        <CardStatusContent>
+          <Info />
+          <CardStatus>{item.status}</CardStatus>
+        </CardStatusContent>
       </CardContentInfo>
       
     </Container>
     
   )
-}
+};
 export default CardItem;
