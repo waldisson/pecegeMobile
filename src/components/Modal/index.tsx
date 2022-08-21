@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-native-modal';
 
 // style
@@ -42,6 +42,16 @@ export interface ModalAddProps {
 const ModalAdd: React.FC<ModalAddProps> = props => {
   const {visible,title, variation, closeModal, onPress} = props;
 
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [date, setDate] = useState('');
+  const [sector, setSector] = useState('');
+  const [priority, setPriority] = useState('');
+  const [status, setStatus] = useState('');
+  const [nameSector, setNameSector] = useState('');
+  const [colorSector, setColorSector] = useState('');
+
+
   return (
     <Modal
       animationIn={'fadeInUpBig'}
@@ -72,26 +82,53 @@ const ModalAdd: React.FC<ModalAddProps> = props => {
         {
           variation === 'task' &&
           <ModalContent showsVerticalScrollIndicator={false}>
-          <Input label="Nome" placeholder="Digite o nome da tarefa..." />
+          <Input 
+            label="Nome" 
+            placeholder="Digite o nome da tarefa..." 
+            value={name}
+            onChangeText={text=> setName(text)}
+          />
           <Input
             label="Descrição (opcional)"
             placeholder="Adicione a descrição"
+            value={description}
+            onChangeText={text=> setDescription(text)}
           />
           <ModalInputGroup>
             <ModalDateAndSector>
               <InputDate>
-                <Input label="Data limite" placeholder="dd/mm/ano" />
+                <Input 
+                  label="Data limite" 
+                  placeholder="dd/mm/ano" 
+                  value={date}
+                  onChangeText={text=> setDate(text)}
+                />
               </InputDate>
               <InputSector>
-                <Input label="Setor" placeholder="Selecione o setor" />
+                <Input 
+                  label="Setor" 
+                  placeholder="Selecione o setor"
+                  value={sector}
+                  onChangeText={text=> setSector(text)}
+                />
               </InputSector>
             </ModalDateAndSector>
             <ModalPriorityAndStatus>
               <InputPriority>
-                <Input label="Prioridade" placeholder="Nível de prioridade" />
+                <Input 
+                  label="Prioridade" 
+                  placeholder="Nível de prioridade" 
+                  value={priority}
+                  onChangeText={text=> setPriority(text)}  
+                />
               </InputPriority>
               <InputStatus>
-                <Input label="Status" placeholder="Selecione o status" />
+                <Input 
+                  label="Status" 
+                  placeholder="Selecione o status" 
+                  value={status}
+                  onChangeText={text=> setStatus(text)}
+                />
               </InputStatus>
             </ModalPriorityAndStatus>
           </ModalInputGroup>
@@ -108,10 +145,17 @@ const ModalAdd: React.FC<ModalAddProps> = props => {
         {
           variation === 'sector' &&
           <ModalContent showsVerticalScrollIndicator={false}>
-          <Input label="Nome" placeholder="Digite o nome do setor..." />
+          <Input 
+            label="Nome" 
+            placeholder="Digite o nome do setor..." 
+            value={nameSector}
+            onChangeText={text=> setNameSector(text)}
+          />
           <Input
-            label="Descrição (opcional)"
-            placeholder="Adicione a descrição"
+            label="Cor de identificação"
+            placeholder="Selecione a cor de identificação"
+            value={colorSector}
+            onChangeText={text=> setColorSector(text)}
           />
           <ModalButtonContainer>
             <ButtonCancel>
@@ -123,8 +167,6 @@ const ModalAdd: React.FC<ModalAddProps> = props => {
         </ModalButtonContainer>
         </ModalContent>
         }
-        
-       
       </Container>
     </Modal>
   );
