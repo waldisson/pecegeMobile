@@ -4,6 +4,7 @@ import React from "react";
 import {
   Container,
   SectorItemTitle,
+  TrashButton
 } from './styles';
 
 // icons
@@ -11,20 +12,23 @@ import Trash from "../../assets/icons/trash";
 
 export interface ItemProps {
   id:number,
-  name: string,
-  color: string,
+  nameSector: string,
+  colorSector: string,
 }
 export interface CardItemProps {
-  item: ItemProps
+  item: ItemProps;
+  removeItemSector?: () => void;
 }
 
 const SectorItem: React.FC <CardItemProps> = props => {
-  const {item} = props;
+  const {item, removeItemSector} = props;
 
   return (
-    <Container>
-      <SectorItemTitle>{item.name}</SectorItemTitle>
-      <Trash />  
+    <Container colorSector={item.colorSector}>
+      <SectorItemTitle>{item.nameSector}</SectorItemTitle>
+      <TrashButton onPress={removeItemSector}>
+        <Trash />  
+      </TrashButton>
     </Container>
     
   )
