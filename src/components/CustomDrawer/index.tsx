@@ -1,6 +1,6 @@
 import React from "react";
 import {DrawerContentScrollView} from '@react-navigation/drawer';
-import { DrawerActions, useNavigation } from "@react-navigation/native";
+import { DrawerActions, useNavigation, CommonActions } from "@react-navigation/native";
 
 // style
 import {
@@ -18,12 +18,17 @@ import LocationSector from '../../assets/icons/locationSector';
 // component
 import Button from "../Button";
 
-
 interface CustomDrawerProps {}
 
 const CustomDrawer: React.FC <CustomDrawerProps> = props => {
   const {} = props;
   const navigation = useNavigation();
+  
+  const goTo = (name:string, params?:any) =>{
+    navigation.dispatch({
+      ...CommonActions.navigate({ name, params }),
+    })
+  }
   return (
     <CustomContainer>
       <DrawerContentScrollView {...props}>
@@ -39,14 +44,14 @@ const CustomDrawer: React.FC <CustomDrawerProps> = props => {
           icon={<CheckButton />}
           title="Tarefas"
           subtitle="Visualize e adicione tarefas"
-          onPress={()=> navigation.navigate('Home')}
+          onPress={()=> goTo('Task')}
         />
           <Button 
           variation='drawer' 
           icon={<CheckButton />} 
           title="Setores"
           subtitle="Visualize e cadastre setores"
-          onPress={()=> navigation.navigate('Sector')}
+          onPress={()=> goTo('Sector')}
         />
       </DrawerContentScrollView>
     </CustomContainer>
