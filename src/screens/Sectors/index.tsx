@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import colors from "../../styles";
-
+import AsyncStorage, { useAsyncStorage } from "@react-native-community/async-storage";
+import {RefreshControl} from 'react-native';
 // array mocado
 import {ItemSector} from '../../types/Item';
 
@@ -20,29 +21,48 @@ import ModalAdd from "../../components/Modal";
 import SectorItem from "../../components/SectorItem";
 
 
-const Sectors = () => {
 
+
+const Sectors = () => {
+  const {getItem, setItem, removeItem} = useAsyncStorage('@dataSector');
   const [showModal, setShowModal] = useState(false);
-  const [list, setList] = useState<ItemSector[]>([
-    { 
-      id:1,
-      name: 'Tecnologia da informação (T.I)',
-      color: `${colors.blueGe}`,
-    },
-    { 
-      id:2,
-      name: 'Relacionamento',
-      color: `${colors.blueGe}`,
-    },
-    { 
-      id:3,
-      name: 'Suporte',
-      color: `${colors.blueGe}`,
-    },
-  ]);
+  const [refreshing, setRefreshing] = useState(false);
+  const [listSector, setListSector] = useState<ItemSector[]>([]);
+
+
+  useEffect(() => {
+    getSector();
+  },[]);
+
+  const getSector = async () => {
+    try {
+      const response = await getItem();
+      const previousData =  response ? JSON.parse(response) : [];
+      setListSector(previousData)
+
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
+  const removeItemSector = async (id: string) => {
+    console.log('id', id)
+    const response = await getItem();
+    const previousData = response ? JSON.parse(response) : [];
+    const data = previousData.filter((item: ItemSector) => item.id !== Number(id));
+    setItem(JSON.stringify(data));
+  }
+
+
+  const onRefresh = () =>{
+    setRefreshing(false);
+    getSector()
+  }
+  
 
   const toggleShowModal = () => {
     setShowModal(!showModal);
+    getSector();
   };
 
   return (
@@ -54,9 +74,12 @@ const Sectors = () => {
       </SectorHeader>
       
       <ListItems
-        data={list}
+        data={listSector}
         keyExtractor={(item) => item.id}
-        renderItem={({item}) => <SectorItem item={item} />}
+        renderItem={({item}) => <SectorItem item={item} removeItemSector={() => removeItemSector(item)}/>}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
+        }
       />
       <ButtonFloat>
         <Button 
@@ -66,12 +89,13 @@ const Sectors = () => {
       </ButtonFloat>
 
       {
-        showModal && 
+        (showModal && listSector) &&
         <ModalAdd 
-          title="Adicionar tarefa"
+          title="Adicionar setores"
           variation="sector"
           visible={showModal}
           closeModal={toggleShowModal} 
+          
         />
       }
 
