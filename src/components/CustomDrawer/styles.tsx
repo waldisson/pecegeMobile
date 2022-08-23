@@ -18,9 +18,9 @@ export const CustomButtonClose = styled.TouchableOpacity`
 `;
 export const CustomHeaderTitle = styled.Text`
   color: ${colors.primary};
-  font-family: 'Poppins';
+  font-family: 'Poppins-Bold';
   font-size:14px;
   line-height:23px;
-  font-weight: bold;
+  font-weight: 700;
 `;
 

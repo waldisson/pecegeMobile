@@ -20,7 +20,7 @@ export const Container = styled.View<ItemProps>`
 `;
 
 export const SectorItemTitle = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Bold';
   font-weight: 700;
   font-size: 12px;
   line-height: 18px;

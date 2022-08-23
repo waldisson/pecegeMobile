@@ -6,7 +6,7 @@ export const Container = styled.View`
   margin-bottom:16px;
 `;
 export const Label = styled.Text`
-  font-family:'Roboto' ;
+  font-family:'Roboto-Regular' ;
   font-weight: 400;
   font-size: 12px;
   line-height:18px;

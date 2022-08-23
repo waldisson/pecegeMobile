@@ -25,7 +25,7 @@ export const CardContentInfo = styled.View`
   left: 16px;
 `;
 export const CardTitle = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Bold';
   font-weight: 700;
   font-size: 12px;
   line-height: 18px;
@@ -35,6 +35,7 @@ export const CardDate = styled(CardTitle)`
   font-weight: 400;
 `;
 export const CardDescription = styled(CardTitle)`
+font-family: 'Roboto-Regular';
   font-weight: 400; 
   color: ${colors.gray300};
   margin: 7px 0 20px 0;
@@ -45,7 +46,7 @@ export const CardPriorityContent = styled.View`
 `;
 
 export const CardPriority = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Regular';
   font-weight: 400;
   font-size: 10px;
   line-height: 15px;

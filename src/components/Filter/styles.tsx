@@ -18,7 +18,7 @@ export const FilterAplication = styled.TouchableOpacity`
   padding: 0 12px 0 12px;
 `;
 export const FilterText = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Regular';
   font-weight: 400;
   font-size:12px;
   line-height:18px;
@@ -40,7 +40,7 @@ export const FilterBall = styled.View`
   align-items: center;
 `;
 export const FilterBallText = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Regular';
   font-weight: 400;
   font-size: 10px;
   line-height:15px;

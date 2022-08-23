@@ -42,14 +42,14 @@ export const DrawerButtonContent = styled.View`
   margin-left: 9px;
 `;
 export const DrawerButtonTitle = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Bold';
   font-size: 14px;
   font-weight: 700;
   line-height: 24px;
   color: ${colors.primary};
 `;
 export const DrawerButtonDescription = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Regular';
   font-size:12px;
   font-weight:400;
   line-height:18px;
