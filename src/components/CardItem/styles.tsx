@@ -32,6 +32,7 @@ export const CardTitle = styled.Text`
   color: ${colors.gray400};
 `;
 export const CardDate = styled(CardTitle)`
+font-family: 'Roboto-Regular';
   font-weight: 400;
 `;
 export const CardDescription = styled(CardTitle)`
