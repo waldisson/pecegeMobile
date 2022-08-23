@@ -1,5 +1,5 @@
-import React from "react";
-import colors from '../../styles';
+import React from 'react';
+import moment from 'moment';
 // style
 import {
   Container,
@@ -17,56 +17,68 @@ import {
 } from './styles';
 
 // icons
-import LocationFilled from "../../assets/icons/locationFilled";
-import Info from "../../assets/icons/info";
+import LocationFilled from '../../assets/icons/locationFilled';
+import Info from '../../assets/icons/info';
+import HourglassIcon from './../../assets/icons/hourglass';
+import CircleCheckIcon from '../../assets/icons/circleCheck';
+import HourIcon from '../../assets/icons/hour';
 
-export interface ItemProps {
-  id:number,
-  name: string,
-  description: string,
-  priority: string,
-  sector: string,
-  date:string,
-  annotation: string,
-  status: string,
-}
+// types
+import {Item as ItemProps} from '../../types/Item';
+import colors from '../../styles';
+
 interface CardItemProps {
-  item: ItemProps
+  item: ItemProps;
+
 }
 
-const CardItem: React.FC <CardItemProps> = props => {
-  const {item} = props;
+const CardItem: React.FC<CardItemProps> = props => {
+  const {item } = props;
 
-  const sector: Record<string, Element> = {
-    'Em andamento': <LocationFilled color={colors.orange}/>,
-    'Concluída': <LocationFilled color={colors.orange}/>,
-    'Pendente': <LocationFilled color={colors.orange}/>
+  const iconsCard: Record<string, JSX.Element> = {
+    'Em andamento': <HourglassIcon color={colors.yellow} />,
+    'Concluida': <CircleCheckIcon color={colors.greenFc} />,
+    'Pendente': <HourIcon color={colors.blueGe} />,
   };
 
+  const iconsColor: Record<string, string> = {
+    'Alta prioridade': colors.danger,
+    'Média prioridade': colors.yellow,
+    'Baixa prioridade': colors.primaryLight,
+  };
+
+
   return (
-    <Container>
+    <Container
+      color={item.sector?.colorSector}
+      style={{
+        shadowColor: 'rgb(0,0,0,0.9)',
+        shadowOpacity: 0.7,
+        shadowOffset: {width: 0, height: 2},
+        shadowRadius: 5,
+        elevation: 4,
+        backgroundColor: 'white',
+      }}>
       <CardTitleAndDate>
         <CardTitle>{item.name}</CardTitle>
-        <CardDate>{item.date}</CardDate>
+        <CardDate>{moment(item.date).format("DD/MM/YYYY")}</CardDate>
       </CardTitleAndDate>
       <CardDescription>{item.description}</CardDescription>
       <CardContentInfo>
         <CardSectorContent>
-          <LocationFilled color={colors.orange}/>
-          <CardSector>{item.sector}</CardSector>
+          <LocationFilled color={item.sector?.colorSector} />
+          <CardSector>{item.sector?.nameSector}</CardSector>
         </CardSectorContent>
         <CardPriorityContent>
-          <Info />
+          <Info color={iconsColor[item.priority]} />
           <CardPriority>{item.priority}</CardPriority>
         </CardPriorityContent>
         <CardStatusContent>
-          <Info />
+          {iconsCard[item.status]}
           <CardStatus>{item.status}</CardStatus>
         </CardStatusContent>
       </CardContentInfo>
-      
     </Container>
-    
-  )
+  );
 };
 export default CardItem;

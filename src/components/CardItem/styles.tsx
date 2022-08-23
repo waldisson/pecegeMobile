@@ -1,18 +1,18 @@
+import { View } from 'react-native';
 import styled from 'styled-components/native';
 import colors from '../../styles';
 
-export const Container = styled.View`
+interface  ContainerProps{
+  color: string,
+}
+
+export const Container = styled.View<ContainerProps>`
   height: 143px;
-  border-left-color: ${colors.orange};
+  border-left-color: ${(props)=>props.color ||colors.orange};
   border-left-width:7px;
   border-radius:8px;
   padding:12px 16px 14px 16px;
-  margin-bottom:16px;
-  border-bottom-width:1px;
-  border-bottom-color: rgba(128,128,128,0.2);
-  border-right-width:1px;
-  border-right-color: rgba(128,128,128,0.2);
-  
+  margin-bottom:16px;  
 `;
 export const CardTitleAndDate = styled.View`
   flex-direction: row;
@@ -20,6 +20,9 @@ export const CardTitleAndDate = styled.View`
 `;
 export const CardContentInfo = styled.View`
   flex-direction: row;
+  position: absolute;
+  bottom: 10px;
+  left: 16px;
 `;
 export const CardTitle = styled.Text`
   font-family: 'Roboto';
