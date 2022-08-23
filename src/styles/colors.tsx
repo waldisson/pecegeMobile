@@ -18,11 +18,13 @@ export default {
   greenFc: '#6AAC41',
   greenBusiness: '#00A98E',
 
+  blue: '#006FFD',
   blueGe: '#0099D7',
   blueLight: '#4296E2',
 
+  yellow: '#FCCA31',
   orange: '#F37F3A',
   purple:  '#93268F',
   danger: '#E02D3C',
-
 }
+

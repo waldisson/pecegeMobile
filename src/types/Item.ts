@@ -7,10 +7,11 @@ export type Item = {
   date: string;
   annotation: string;
   status: 'Pendente' | 'Em andamento' | 'Concluída';
+  color: string;
 }
 
 export type ItemSector = {
   id: number;
-  name: string;
-  color: string;
+  nameSector: string;
+  colorSector: string;
 }
