@@ -7,23 +7,23 @@
 
 ## Tecnologia utilizadas: 
 
-  React-native;
-  TypeScript
-  ContextApi
-  Hooks
+ * React-native;
+ * TypeScript
+ * ContextApi
+ * Hooks
 
 ## Bibliotecas adicionadas
 
-  AsyncStorage
-  Styled Components
-  DateTimePicker
-  React Native Modal
-  React Native Svg
-  React Native UUID
+ * AsyncStorage
+ * Styled Components
+ * DateTimePicker
+ * React Native Modal
+ * React Native Svg
+ * React Native UUID
 
 ## Navegação
 
-  React Navigation Native
-  React Navigation Drawer
+ * React Navigation Native
+ * React Navigation Drawer
 
 
