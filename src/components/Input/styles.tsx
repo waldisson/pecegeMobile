@@ -57,6 +57,9 @@ export const SelectItem = styled(TouchableOpacity).attrs({
   margin-top:5px;
   padding-left: 5px;
 `;
+export const SelectContentColor = styled(SelectContent)`
+  bottom: 0px;
+`;
 export const SelectItemText = styled.Text`
 `;
 export const SelectColorText = styled.Text`

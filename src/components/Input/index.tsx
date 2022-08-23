@@ -16,6 +16,7 @@ import {
   SelectItem,
   SelectItemText,
   SelectColorText,
+  SelectContentColor,
 } from './styles';
 
 // colors select
@@ -202,7 +203,7 @@ const Input: React.FC<InputProps> = props => {
             </SelectButton>
             {
               openSector && (
-                <SelectContent>
+                <SelectContentColor>
                   {
                     colorSelect?.map((item)=>(
                       <SelectItem key={item.id} onPress={()=>{
@@ -214,7 +215,7 @@ const Input: React.FC<InputProps> = props => {
                     ))
                   }
                 
-              </SelectContent>
+              </SelectContentColor>
               )
             }
           </SelectContainer>
