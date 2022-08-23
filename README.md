@@ -1,9 +1,9 @@
 # pecegeMobile
 ## Iniciar o projeto:
-- yarn run android
+ - yarn run android
 
 ## Desafio
-  Criação de um aplicativo tipo lista de tarefas
+ - Criação de um aplicativo tipo lista de tarefas
 
 ## Tecnologia utilizadas: 
 
