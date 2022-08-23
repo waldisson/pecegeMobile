@@ -7,7 +7,7 @@
 
 ## Tecnologia utilizadas: 
 
-  React-native 
+  React-native;
   TypeScript
   ContextApi
   Hooks
