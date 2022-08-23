@@ -2,17 +2,17 @@
 ## Iniciar o projeto:
 - yarn run android
 
-# Desafio
+## Desafio
   Criação de um aplicativo tipo lista de tarefas
 
-# Tecnologia utilizadas: 
+## Tecnologia utilizadas: 
 
   React-native 
   TypeScript
   ContextApi
   Hooks
 
-# Bibliotecas adicionadas
+## Bibliotecas adicionadas
 
   AsyncStorage
   Styled Components
@@ -21,7 +21,7 @@
   React Native Svg
   React Native UUID
 
-# Navegação
+## Navegação
 
   React Navigation Native
   React Navigation Drawer
