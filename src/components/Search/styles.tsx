@@ -12,5 +12,7 @@ export const Container = styled.View`
 `;
 
 export const SearchInput = styled.TextInput`
+  font-family: 'Inter-Light';
   padding-left:16px;
+  width:80%;
 `;

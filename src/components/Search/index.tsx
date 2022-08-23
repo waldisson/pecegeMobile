@@ -1,5 +1,5 @@
 import React from 'react';
-
+import colors from '../../styles';
 // Styles
 import {
   Container,
@@ -8,7 +8,6 @@ import {
 
 // Icons
 import SearchIcon from '../../assets/icons/search';
-import colors from '../../styles';
 
 // Props
 interface SearchProps {
@@ -23,6 +22,8 @@ const Search: React.FC<SearchProps> = props => {
     <Container>
       <SearchIcon />
       <SearchInput 
+        autoCorrect={false}
+        underlineColorAndroid="transparent"
         placeholder="Procurar"
         placeholderTextColor={colors.darkLight}
       />
