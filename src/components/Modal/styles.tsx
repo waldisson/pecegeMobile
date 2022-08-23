@@ -74,3 +74,24 @@ export const ModalButtonContainer = styled.View`
   justify-content:flex-end;
   margin:25px 0 32px 0;
 `;
+
+
+export const ModalDatePikerButton = styled.TouchableOpacity`
+  border-radius: 8px;
+  border: 1px solid ${colors.gray200};
+  height:34px;
+  padding-left:8px;
+  justify-content: center;
+  width:100%;
+`;
+export const ModalDateLabel = styled.Text`
+  font-family:'Roboto-Regular';
+  font-weight: 400;
+  font-size: 12px;
+  line-height:18px;
+  color: ${colors.gray400};
+  margin-bottom:8px;
+`;
+export const ModalDatePikerText = styled.Text`
+  
+`;
